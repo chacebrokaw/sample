@@ -1,0 +1,18 @@
+library('ISwR')
+x = cystfibr
+plot(x)
+lm(x)
+lm(x, y=x$pemax)
+
+plot(cystfibr$age, cystfibr$sex)  
+plot(cystfibr$age, cystfibr$height)
+library('ISwR')
+data("cystfibr")
+attach(cystfibr)
+my.model = lm(pemax ~ age+sex+height+weight+bmp+fev1+rv+frc+tlc)
+summary(my.model)
+plot(my.model) 
+my.model = lm(pemax ~ age+sex+height+weight+bmp+fev1+rv+frc+tlc+age:sex)
+summary(my.model)
+my.model = lm(pemax ~ age+sex+height+frc+tlc)
+summary(my.model)
